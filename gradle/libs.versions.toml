@@ -1,15 +1,15 @@
 [versions]
-errorprone = "2.49.0"
-errorprone-plugin = "5.1.0"
+errorprone = "2.50.0"
+errorprone-plugin = "5.1.1"
 idea-ext = "1.4.1"
-jackson2 = "2.21.3"
-jackson3 = "3.1.3"
-jspecify = "1.0.0"
-junit = "6.0.3"
-nmcp = "1.5.0"
-nullaway = "0.13.4"
+jackson2 = "2.22.3"
+jackson3 = "3.2.3"
+jspecify = "1.0.1"
+junit = "6.1.3"
+nmcp = "1.6.2"
+nullaway = "0.14.2"
 problem4j-core = "1.4.3"
-spotless = "8.4.0"
+spotless = "8.10.4"
 
 [plugins]
 errorprone = { id = "net.ltgt.errorprone", version.ref = "errorprone-plugin" }
