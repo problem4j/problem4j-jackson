@@ -1,4 +1,4 @@
-# Copilot Instructions - `problem4j-jackson`
+# `problem4j-jackson` - Agent Instructions
 
 Jackson integration modules for [problem4j-core](https://github.com/problem4j/problem4j-core) - serialization and
 deserialization of RFC 7807 Problem objects.
