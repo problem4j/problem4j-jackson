@@ -33,7 +33,7 @@ internalBuild {
 
 val javaTargetVersion = 17
 
-tasks.named<JavaCompile>("compileJava").configure {
+tasks.named<JavaCompile>("compileJava") {
     options.release = javaTargetVersion
 }
 

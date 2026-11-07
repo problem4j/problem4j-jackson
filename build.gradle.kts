@@ -3,7 +3,7 @@ import com.diffplug.spotless.LineEnding
 plugins {
     id("internal.idea-convention")
     id("jacoco-report-aggregation")
-    alias(libs.plugins.nmcp).apply(false)
+    alias(libs.plugins.nmcp) apply false
     alias(libs.plugins.nmcp.aggregation)
     alias(libs.plugins.spotless)
 }
