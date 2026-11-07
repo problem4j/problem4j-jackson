@@ -1,6 +1,4 @@
 plugins {
-    id("internal.errorprone-convention")
-    id("internal.jacoco-convention")
     id("internal.java-library-convention")
     id("internal.publishing-convention")
     alias(libs.plugins.nmcp)
@@ -28,15 +26,23 @@ dependencies {
 }
 
 // see build-logic/src/main/kotlin/internal.publishing-convention.gradle.kts
-internalPublishing {
+internalBuild {
     displayName = "Problem4J Jackson3"
     description = "Jackson3 integration for library implementing RFC7807 (and RFC9457)"
 }
 
+val javaTargetVersion = 17
+
 tasks.named<JavaCompile>("compileJava").configure {
-    options.release = 17
+    options.release = javaTargetVersion
 }
 
 tasks.withType<Javadoc>().configureEach {
-    javadocTool = javaToolchains.javadocToolFor { languageVersion = JavaLanguageVersion.of(17) }
+    javadocTool = javaToolchains.javadocToolFor { languageVersion = JavaLanguageVersion.of(javaTargetVersion) }
+}
+
+tasks.withType<Jar>().configureEach {
+    manifest {
+        attributes["Build-Jdk-Spec"] = javaTargetVersion
+    }
 }

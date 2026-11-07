@@ -35,7 +35,6 @@ reporting {
 
 spotless {
     val licenseHeader = "${rootProject.rootDir}/gradle/license-header.java"
-
     java {
         target("**/src/**/*.java")
         licenseHeaderFile(licenseHeader)
