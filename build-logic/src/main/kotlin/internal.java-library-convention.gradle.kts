@@ -1,8 +1,12 @@
+import internal.isTestTask
+import net.ltgt.gradle.errorprone.errorprone
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
+    id("jacoco")
     id("java-library")
+    id("net.ltgt.errorprone")
 }
 
 // The project is built using a JDK 25 toolchain. The configuration of --release is defined in build.gradle.kts files in
@@ -16,9 +20,11 @@ plugins {
 // This setup lets us use a modern JDK for tooling (ErrorProne, NullAway) while keeping binary compatibility for library
 // consumers.
 
+val javaToolchainVersion = 25
+
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(25)
+        languageVersion = JavaLanguageVersion.of(javaToolchainVersion)
     }
     withSourcesJar()
     withJavadocJar()
@@ -27,6 +33,16 @@ java {
 tasks.withType<JavaCompile>().configureEach {
     options.compilerArgs.add("-parameters")
     options.encoding = "UTF-8"
+
+    options.errorprone {
+        if (isTestTask()) {
+            disableAllChecks = true
+        }
+
+        error("NullAway")
+        option("NullAway:OnlyNullMarked", "true")
+        option("NullAway:JSpecifyMode", "true")
+    }
 }
 
 tasks.withType<Test>().configureEach {
@@ -42,6 +58,20 @@ tasks.withType<Test>().configureEach {
     systemProperty("user.country", "US")
 }
 
+tasks.named<JacocoReport>("jacocoTestReport") {
+    dependsOn(tasks.named("test"))
+
+    reports {
+        xml.required = true
+        html.required = true
+        csv.required = false
+    }
+}
+
+tasks.named<Task>("check") {
+    finalizedBy(tasks.named("jacocoTestReport"))
+}
+
 tasks.withType<Jar>().configureEach {
     manifest {
         attributes["Implementation-Title"] = project.name
@@ -50,7 +80,7 @@ tasks.withType<Jar>().configureEach {
     }
     from("${rootProject.rootDir}/LICENSE") {
         into("META-INF/")
-        rename { "LICENSE.txt" }
+        rename { "$it.txt" }
     }
 }
 

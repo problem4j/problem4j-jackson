@@ -37,7 +37,6 @@ reporting {
 spotless {
     val licenseHeader = "${rootProject.rootDir}/gradle/license-header.java"
     val updateLicenseYear = project.getBooleanProperty("spotless.license-year-enabled")
-
     java {
         target("**/src/**/*.java")
         licenseHeaderFile(licenseHeader).updateYearWithLatest(updateLicenseYear)
@@ -47,7 +46,6 @@ spotless {
         endWithNewline()
         lineEndings = LineEnding.UNIX
     }
-
     format("javaMisc") {
         target("**/src/**/package-info.java", "**/src/**/module-info.java")
 
@@ -64,7 +62,6 @@ spotless {
 
         licenseHeaderFile(licenseHeader, delimiter).updateYearWithLatest(updateLicenseYear)
     }
-
     kotlin {
         target("**/src/**/*.kt")
 
@@ -72,7 +69,6 @@ spotless {
         endWithNewline()
         lineEndings = LineEnding.UNIX
     }
-
     kotlinGradle {
         target("**/*.gradle.kts")
         targetExclude("**/build/**")
@@ -81,7 +77,6 @@ spotless {
         endWithNewline()
         lineEndings = LineEnding.UNIX
     }
-
     format("yaml") {
         target("**/*.yml", "**/*.yaml")
 
@@ -90,7 +85,6 @@ spotless {
         endWithNewline()
         lineEndings = LineEnding.UNIX
     }
-
     format("misc") {
         target("**/.gitattributes", "**/.gitignore")
 
