@@ -39,11 +39,7 @@ class ProblemJsonSerializerTest extends AbstractProblemJsonTest {
     JsonMapper mapper = JsonMapper.builder().addModule(new ProblemJacksonModule()).build();
 
     Problem problem =
-        Problem.builder()
-            .title("Hello World")
-            .status(99)
-            .extension(Problem.extension("title", "extTitle"))
-            .build();
+        Problem.builder().title("Hello World").status(99).extension(Problem.extension("title", "extTitle")).build();
 
     String problemJson = mapper.writeValueAsString(problem);
 
@@ -55,11 +51,7 @@ class ProblemJsonSerializerTest extends AbstractProblemJsonTest {
     JsonMapper mapper = JsonMapper.builder().addModule(new ProblemJacksonModule()).build();
 
     Problem problem =
-        Problem.builder()
-            .title("Hello World")
-            .status(99)
-            .extension(Problem.extension("extension", null))
-            .build();
+        Problem.builder().title("Hello World").status(99).extension(Problem.extension("extension", null)).build();
 
     String problemJson = mapper.writeValueAsString(problem);
 

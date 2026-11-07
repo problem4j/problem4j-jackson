@@ -48,8 +48,7 @@ abstract class AbstractProblemXmlTest {
           + "<userid>100</userid>"
           + "</problem>";
 
-  protected final Instant timestamp =
-      LocalDateTime.of(2018, 10, 1, 10, 43, 21, 221000000).toInstant(ZoneOffset.UTC);
+  protected final Instant timestamp = LocalDateTime.of(2018, 10, 1, 10, 43, 21, 221000000).toInstant(ZoneOffset.UTC);
 
   protected final Problem problem =
       Problem.builder()

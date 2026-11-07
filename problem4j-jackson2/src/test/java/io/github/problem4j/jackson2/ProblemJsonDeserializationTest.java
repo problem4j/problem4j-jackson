@@ -34,8 +34,7 @@ class ProblemJsonDeserializationTest extends AbstractProblemJsonTest {
 
   @ParameterizedTest
   @MethodSource("variousJsonMapperConfigurations")
-  void givenVariousObjectMapper_whenDeserializing_shouldDeserialize(ObjectMapper mapper)
-      throws IOException {
+  void givenVariousObjectMapper_whenDeserializing_shouldDeserialize(ObjectMapper mapper) throws IOException {
     Problem deserializedProblem = mapper.readValue(json, Problem.class);
 
     assertEquals(problem.getType(), deserializedProblem.getType());
@@ -55,8 +54,7 @@ class ProblemJsonDeserializationTest extends AbstractProblemJsonTest {
   @ParameterizedTest
   @ValueSource(strings = {"http://exa mple.com", "http://example.com/<>", "http://[::1"})
   @NullSource
-  void givenTypeInvalidUri_whenDeserializing_shouldDeserialize(String type)
-      throws JsonProcessingException {
+  void givenTypeInvalidUri_whenDeserializing_shouldDeserialize(String type) throws JsonProcessingException {
     ObjectMapper mapper = new JsonMapper().registerModule(new ProblemModule());
 
     String json =
@@ -77,8 +75,7 @@ class ProblemJsonDeserializationTest extends AbstractProblemJsonTest {
   @ParameterizedTest
   @ValueSource(strings = {"\"string\"", "false", "true"})
   @NullSource
-  void givenInvalidStatus_whenDeserializing_shouldDeserializeToZero(String status)
-      throws JsonProcessingException {
+  void givenInvalidStatus_whenDeserializing_shouldDeserializeToZero(String status) throws JsonProcessingException {
     ObjectMapper mapper = new JsonMapper().registerModule(new ProblemModule());
 
     String json =

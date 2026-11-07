@@ -87,8 +87,7 @@ class ProblemBridgeTest {
     JsonMapper mapper = JsonMapper.builder().addModule(new ProblemJacksonModule()).build();
 
     String json =
-        "{\"title\":\"test\",\"status\":400,"
-            + "\"custom\":\"first\",\"custom\":\"second\",\"custom\":\"third\"}";
+        "{\"title\":\"test\",\"status\":400," + "\"custom\":\"first\",\"custom\":\"second\",\"custom\":\"third\"}";
 
     Problem problem = mapper.readValue(json, Problem.class);
 

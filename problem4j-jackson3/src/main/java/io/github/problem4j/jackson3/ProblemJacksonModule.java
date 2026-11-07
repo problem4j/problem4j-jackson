@@ -21,12 +21,11 @@ import java.io.Serial;
 import tools.jackson.databind.module.SimpleModule;
 
 /**
- * Jackson 3 module for Problem. Register this module in your {@code ObjectMapper} to enable
- * serialization and deserialization of {@link Problem} instances.
+ * Jackson 3 module for Problem. Register this module in your {@code ObjectMapper} to enable serialization and
+ * deserialization of {@link Problem} instances.
  *
- * <p>Named differently than in Jackson 2 to avoid accidental misuses when both versions are used in
- * the same project. Name comes from top level class being {@code JacksonModule} instead of {@code
- * Module} as in Jackson 2.
+ * <p>Named differently than in Jackson 2 to avoid accidental misuses when both versions are used in the same project.
+ * Name comes from top level class being {@code JacksonModule} instead of {@code Module} as in Jackson 2.
  *
  * @see tools.jackson.databind.JacksonModule
  * @see tools.jackson.databind.ObjectMapper
@@ -40,8 +39,8 @@ public class ProblemJacksonModule extends SimpleModule {
   /**
    * Creates and initializes the {@code ProblemJacksonModule}.
    *
-   * <p>The module is registered under its simple class name and configures Jackson mix-in
-   * annotations required for correct {@link Problem} serialization and deserialization.
+   * <p>The module is registered under its simple class name and configures Jackson mix-in annotations required for
+   * correct {@link Problem} serialization and deserialization.
    *
    * @since 1.3.0
    */

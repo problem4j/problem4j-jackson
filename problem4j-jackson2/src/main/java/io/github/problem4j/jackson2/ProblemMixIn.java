@@ -27,8 +27,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 /**
- * Jackson MixIn that redirects serialization and deserialization of {@code Problem} through the
- * internal {@link ProblemBridge} POJO.
+ * Jackson MixIn that redirects serialization and deserialization of {@code Problem} through the internal {@link
+ * ProblemBridge} POJO.
  *
  * @see io.github.problem4j.core.Problem
  * @since 1.3.0

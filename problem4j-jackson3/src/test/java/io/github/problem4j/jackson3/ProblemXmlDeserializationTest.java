@@ -41,13 +41,11 @@ class ProblemXmlDeserializationTest extends AbstractProblemXmlTest {
     assertEquals(expectedProblem.getDetail(), deserializedProblem.getDetail());
     assertEquals(expectedProblem.getInstance(), deserializedProblem.getInstance());
 
-    assertEquals(
-        expectedProblem.getExtensions().size(), deserializedProblem.getExtensions().size());
+    assertEquals(expectedProblem.getExtensions().size(), deserializedProblem.getExtensions().size());
 
     for (String key : expectedProblem.getExtensions().keySet()) {
       assertTrue(deserializedProblem.getExtensions().containsKey(key));
-      assertEquals(
-          expectedProblem.getExtensions().get(key), deserializedProblem.getExtensions().get(key));
+      assertEquals(expectedProblem.getExtensions().get(key), deserializedProblem.getExtensions().get(key));
     }
   }
 

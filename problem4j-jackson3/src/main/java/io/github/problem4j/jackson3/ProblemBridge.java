@@ -43,12 +43,11 @@ import tools.jackson.databind.JsonNode;
 import tools.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 /**
- * Bridge POJO used to serialize and deserialize {@link Problem} instances. It provides a concrete,
- * Jackson-friendly representation of the otherwise interface-based Problem model. During
- * serialization the original Problem is mapped into this class, and during deserialization this
- * class is converted back into a full Problem instance using the appropriate builder or factory.
- * This indirection ensures consistent JSON/XML output and full control over extension members and
- * namespaces.
+ * Bridge POJO used to serialize and deserialize {@link Problem} instances. It provides a concrete, Jackson-friendly
+ * representation of the otherwise interface-based Problem model. During serialization the original Problem is mapped
+ * into this class, and during deserialization this class is converted back into a full Problem instance using the
+ * appropriate builder or factory. This indirection ensures consistent JSON/XML output and full control over extension
+ * members and namespaces.
  */
 @JsonPropertyOrder({TYPE, TITLE, STATUS, DETAIL, INSTANCE})
 @JsonInclude(NON_EMPTY)
@@ -146,8 +145,8 @@ class ProblemBridge implements Serializable {
   /**
    * Collects non-standard JSON properties as {@link Problem} extensions.
    *
-   * <p>This method is invoked by Jackson for any JSON property that is not mapped to a known
-   * member. Reserved problem members are ignored.
+   * <p>This method is invoked by Jackson for any JSON property that is not mapped to a known member. Reserved problem
+   * members are ignored.
    *
    * <p>If the same extension name occurs multiple times, values are merged:
    *
@@ -156,8 +155,8 @@ class ProblemBridge implements Serializable {
    *   <li>multiple values are accumulated into a {@link List}.
    * </ul>
    *
-   * <p>Warnings are suppressed for unchecked operations on raw types, as full knowledge about types
-   * of extension values is not available at this point.
+   * <p>Warnings are suppressed for unchecked operations on raw types, as full knowledge about types of extension values
+   * is not available at this point.
    *
    * @param name the JSON property name
    * @param value the JSON property value

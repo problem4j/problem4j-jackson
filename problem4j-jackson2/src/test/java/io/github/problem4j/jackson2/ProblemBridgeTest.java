@@ -43,8 +43,7 @@ class ProblemBridgeTest {
   }
 
   @Test
-  void givenInstanceAsNumber_whenDeserializing_thenInstanceShouldBeNull()
-      throws JsonProcessingException {
+  void givenInstanceAsNumber_whenDeserializing_thenInstanceShouldBeNull() throws JsonProcessingException {
     JsonMapper mapper = JsonMapper.builder().addModule(new ProblemModule()).build();
 
     String json = "{\"title\":\"test\",\"status\":400,\"instance\":123}";
@@ -85,13 +84,11 @@ class ProblemBridgeTest {
 
   @Test
   @SuppressWarnings("unchecked")
-  void givenDuplicateExtension_whenDeserializing_thenValuesShouldBeMergedIntoList()
-      throws JsonProcessingException {
+  void givenDuplicateExtension_whenDeserializing_thenValuesShouldBeMergedIntoList() throws JsonProcessingException {
     JsonMapper mapper = JsonMapper.builder().addModule(new ProblemModule()).build();
 
     String json =
-        "{\"title\":\"test\",\"status\":400,"
-            + "\"custom\":\"first\",\"custom\":\"second\",\"custom\":\"third\"}";
+        "{\"title\":\"test\",\"status\":400," + "\"custom\":\"first\",\"custom\":\"second\",\"custom\":\"third\"}";
 
     Problem problem = mapper.readValue(json, Problem.class);
 
@@ -112,8 +109,7 @@ class ProblemBridgeTest {
   }
 
   @Test
-  void givenInstanceAsBoolean_whenDeserializing_thenInstanceShouldBeNull()
-      throws JsonProcessingException {
+  void givenInstanceAsBoolean_whenDeserializing_thenInstanceShouldBeNull() throws JsonProcessingException {
     JsonMapper mapper = JsonMapper.builder().addModule(new ProblemModule()).build();
 
     String json = "{\"title\":\"test\",\"status\":400,\"instance\":true}";
@@ -135,8 +131,7 @@ class ProblemBridgeTest {
   }
 
   @Test
-  void givenInstanceAsArray_whenDeserializing_thenInstanceShouldBeNull()
-      throws JsonProcessingException {
+  void givenInstanceAsArray_whenDeserializing_thenInstanceShouldBeNull() throws JsonProcessingException {
     JsonMapper mapper = JsonMapper.builder().addModule(new ProblemModule()).build();
 
     String json = "{\"title\":\"test\",\"status\":400,\"instance\":[1,2,3]}";

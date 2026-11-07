@@ -40,17 +40,12 @@ class ProblemXmlSerializationTest extends AbstractProblemXmlTest {
     ObjectMapper mapper = XmlMapper.builder().addModule(new ProblemJacksonModule()).build();
 
     Problem problem =
-        Problem.builder()
-            .title("Hello World")
-            .status(99)
-            .extension(Problem.extension("title", "extTitle"))
-            .build();
+        Problem.builder().title("Hello World").status(99).extension(Problem.extension("title", "extTitle")).build();
 
     String problemXml = mapper.writeValueAsString(problem);
 
     assertEquals(
-        "<problem xmlns=\"urn:ietf:rfc:7807\"><title>Hello World</title><status>99</status></problem>",
-        problemXml);
+        "<problem xmlns=\"urn:ietf:rfc:7807\"><title>Hello World</title><status>99</status></problem>", problemXml);
   }
 
   @Test
@@ -58,16 +53,11 @@ class ProblemXmlSerializationTest extends AbstractProblemXmlTest {
     ObjectMapper mapper = XmlMapper.builder().addModule(new ProblemJacksonModule()).build();
 
     Problem problem =
-        Problem.builder()
-            .title("Hello World")
-            .status(99)
-            .extension(Problem.extension("extension", null))
-            .build();
+        Problem.builder().title("Hello World").status(99).extension(Problem.extension("extension", null)).build();
 
     String problemXml = mapper.writeValueAsString(problem);
 
     assertEquals(
-        "<problem xmlns=\"urn:ietf:rfc:7807\"><title>Hello World</title><status>99</status></problem>",
-        problemXml);
+        "<problem xmlns=\"urn:ietf:rfc:7807\"><title>Hello World</title><status>99</status></problem>", problemXml);
   }
 }

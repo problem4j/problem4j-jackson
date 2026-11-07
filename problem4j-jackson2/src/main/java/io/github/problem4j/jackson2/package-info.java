@@ -17,12 +17,11 @@
 /**
  * Jackson 2.x integration module for RFC 7807 Problem objects.
  *
- * <p>This package provides Jackson 2.x serialization and deserialization support for RFC 7807
- * Problem objects. It includes a custom {@code ProblemModule} that integrates with Jackson's module
- * system for seamless handling of Problem instances in JSON and XML formats.
+ * <p>This package provides Jackson 2.x serialization and deserialization support for RFC 7807 Problem objects. It
+ * includes a custom {@code ProblemModule} that integrates with Jackson's module system for seamless handling of Problem
+ * instances in JSON and XML formats.
  *
- * <p>The module is registered automatically via Jackson's module discovery mechanism when present
- * on the classpath.
+ * <p>The module is registered automatically via Jackson's module discovery mechanism when present on the classpath.
  *
  * @see <a href="https://tools.ietf.org/html/rfc7807">RFC 7807: Problem Details for HTTP APIs</a>
  * @see io.github.problem4j.jackson2.ProblemModule

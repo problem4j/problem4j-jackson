@@ -48,8 +48,7 @@ abstract class AbstractProblemXmlTest {
           + "<userid>100</userid>"
           + "</problem>";
 
-  protected final Instant timestamp =
-      LocalDateTime.of(2018, 10, 1, 10, 43, 21, 221000000).toInstant(ZoneOffset.UTC);
+  protected final Instant timestamp = LocalDateTime.of(2018, 10, 1, 10, 43, 21, 221000000).toInstant(ZoneOffset.UTC);
 
   protected final Problem problem =
       Problem.builder()
@@ -95,7 +94,6 @@ abstract class AbstractProblemXmlTest {
     return Stream.of(
         Arguments.of(XmlMapper.builder().findAndAddModules().build()),
         Arguments.of(XmlMapper.builder().addModule(new ProblemJacksonModule()).build()),
-        Arguments.of(
-            XmlMapper.builder().addMixIn(Problem.class, ProblemJacksonMixIn.class).build()));
+        Arguments.of(XmlMapper.builder().addMixIn(Problem.class, ProblemJacksonMixIn.class).build()));
   }
 }
