@@ -20,11 +20,12 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import io.github.problem4j.core.Problem;
 
 /**
- * Jackson 2 module for Problem. Register this module in your {@code ObjectMapper} to enable serialization and
- * deserialization of {@link Problem} instances.
+ * Jackson 2 module for Problem. Register this module in your {@code ObjectMapper} to enable
+ * serialization and deserialization of {@link Problem} instances.
  *
- * <p>Named differently than in Jackson 3 to avoid accidental misuses when both versions are used in the same project.
- * Name comes from top level class being {@code Module} instead of {@code JacksonModule} as in Jackson 3.
+ * <p>Named differently than in Jackson 3 to avoid accidental misuses when both versions are used in
+ * the same project. Name comes from top level class being {@code Module} instead of {@code
+ * JacksonModule} as in Jackson 3.
  *
  * @see com.fasterxml.jackson.databind.Module
  * @see com.fasterxml.jackson.databind.ObjectMapper
@@ -38,8 +39,8 @@ public class ProblemModule extends SimpleModule {
   /**
    * Creates and initializes the {@code ProblemModule}.
    *
-   * <p>The module is registered under its simple class name and configures Jackson mix-in annotations required for
-   * correct {@link Problem} serialization and deserialization.
+   * <p>The module is registered under its simple class name and configures Jackson mix-in
+   * annotations required for correct {@link Problem} serialization and deserialization.
    *
    * @since 1.3.0
    */

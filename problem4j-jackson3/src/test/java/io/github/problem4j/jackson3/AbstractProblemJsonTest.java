@@ -43,7 +43,8 @@ abstract class AbstractProblemJsonTest {
           + "\"userid\":100"
           + "}";
 
-  protected final Instant timestamp = LocalDateTime.of(2018, 10, 1, 10, 43, 21, 221000000).toInstant(ZoneOffset.UTC);
+  protected final Instant timestamp =
+      LocalDateTime.of(2018, 10, 1, 10, 43, 21, 221000000).toInstant(ZoneOffset.UTC);
 
   protected final Problem problem =
       Problem.builder()
@@ -69,6 +70,7 @@ abstract class AbstractProblemJsonTest {
     return Stream.of(
         Arguments.of(JsonMapper.builder().findAndAddModules().build()),
         Arguments.of(JsonMapper.builder().addModule(new ProblemJacksonModule()).build()),
-        Arguments.of(JsonMapper.builder().addMixIn(Problem.class, ProblemJacksonMixIn.class).build()));
+        Arguments.of(
+            JsonMapper.builder().addMixIn(Problem.class, ProblemJacksonMixIn.class).build()));
   }
 }

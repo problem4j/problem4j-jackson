@@ -19,12 +19,13 @@ import org.jspecify.annotations.NullMarked;
 /**
  * Jackson 3.x integration module for RFC 7807 Problem objects.
  *
- * <p>This module provides Jackson 3.x integration for serializing and deserializing RFC 7807 Problem objects. It
- * declares optional dependencies on Jackson's databind and XML dataformat modules, making them optional for module
- * resolution while supporting both JSON and XML serialization.
+ * <p>This module provides Jackson 3.x integration for serializing and deserializing RFC 7807
+ * Problem objects. It declares optional dependencies on Jackson's databind and XML dataformat
+ * modules, making them optional for module resolution while supporting both JSON and XML
+ * serialization.
  *
- * <p>The module exports the {@code io.github.problem4j.jackson3} package and provides the {@code ProblemJacksonModule}
- * as a Jackson module service.
+ * <p>The module exports the {@code io.github.problem4j.jackson3} package and provides the {@code
+ * ProblemJacksonModule} as a Jackson module service.
  *
  * @see <a href="https://tools.ietf.org/html/rfc7807">RFC 7807: Problem Details for HTTP APIs</a>
  * @see io.github.problem4j.jackson3.ProblemJacksonModule

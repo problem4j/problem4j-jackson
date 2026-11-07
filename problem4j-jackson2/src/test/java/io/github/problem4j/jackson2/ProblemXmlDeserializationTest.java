@@ -34,7 +34,8 @@ class ProblemXmlDeserializationTest extends AbstractProblemXmlTest {
 
   @ParameterizedTest
   @MethodSource("variousXmlMapperConfigurations")
-  void givenVariousObjectMapper_whenDeserializing_shouldDeserialize(ObjectMapper mapper) throws IOException {
+  void givenVariousObjectMapper_whenDeserializing_shouldDeserialize(ObjectMapper mapper)
+      throws IOException {
     Problem deserializedProblem = mapper.readValue(xml, Problem.class);
 
     assertEquals(expectedProblem.getType(), deserializedProblem.getType());
@@ -43,18 +44,21 @@ class ProblemXmlDeserializationTest extends AbstractProblemXmlTest {
     assertEquals(expectedProblem.getDetail(), deserializedProblem.getDetail());
     assertEquals(expectedProblem.getInstance(), deserializedProblem.getInstance());
 
-    assertEquals(expectedProblem.getExtensions().size(), deserializedProblem.getExtensions().size());
+    assertEquals(
+        expectedProblem.getExtensions().size(), deserializedProblem.getExtensions().size());
 
     for (String key : expectedProblem.getExtensions().keySet()) {
       assertTrue(deserializedProblem.getExtensions().containsKey(key));
-      assertEquals(expectedProblem.getExtensions().get(key), deserializedProblem.getExtensions().get(key));
+      assertEquals(
+          expectedProblem.getExtensions().get(key), deserializedProblem.getExtensions().get(key));
     }
   }
 
   @ParameterizedTest
   @ValueSource(strings = {"http://exa mple.com", "http://example.com/&lt;&gt;", "http://[::1"})
   @NullSource
-  void givenTypeInvalidUri_whenDeserializing_shouldDeserialize(String type) throws JsonProcessingException {
+  void givenTypeInvalidUri_whenDeserializing_shouldDeserialize(String type)
+      throws JsonProcessingException {
     ObjectMapper mapper = new XmlMapper().registerModule(new ProblemModule());
 
     String xml =
@@ -75,7 +79,8 @@ class ProblemXmlDeserializationTest extends AbstractProblemXmlTest {
   @ParameterizedTest
   @ValueSource(strings = {"\"string\"", "false", "true"})
   @NullSource
-  void givenInvalidStatus_whenDeserializing_shouldDeserializeToZero(String status) throws JsonProcessingException {
+  void givenInvalidStatus_whenDeserializing_shouldDeserializeToZero(String status)
+      throws JsonProcessingException {
     ObjectMapper mapper = new XmlMapper().registerModule(new ProblemModule());
 
     String xml =
