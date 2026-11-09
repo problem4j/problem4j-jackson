@@ -43,6 +43,5 @@ tasks.withType<Javadoc>().configureEach {
 
 tasks.withType<Jar>().configureEach {
     manifest {
-        attributes["Build-Jdk-Spec"] = javaTargetVersion
     }
 }
