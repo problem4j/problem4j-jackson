@@ -1,3 +1,4 @@
+import internal.getIntProperty
 import internal.isTestTask
 import net.ltgt.gradle.errorprone.errorprone
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
@@ -20,11 +21,13 @@ plugins {
 // This setup lets us use a modern JDK for tooling (ErrorProne, NullAway) while keeping binary compatibility for library
 // consumers.
 
-val javaToolchainVersion = 25
+val javaToolchain = getIntProperty("internal.java.toolchain")
+
+val javaTestRuntime = JavaVersion.current().majorVersion.toInt()
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(javaToolchainVersion)
+        languageVersion = JavaLanguageVersion.of(javaToolchain)
     }
     withSourcesJar()
     withJavadocJar()
@@ -43,6 +46,10 @@ tasks.withType<JavaCompile>().configureEach {
         option("NullAway:OnlyNullMarked", "true")
         option("NullAway:JSpecifyMode", "true")
     }
+}
+
+tasks.named<JavaCompile>("compileTestJava") {
+    options.release = javaTestRuntime
 }
 
 tasks.withType<Test>().configureEach {
